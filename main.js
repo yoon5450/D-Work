@@ -1,6 +1,10 @@
 let loginBtn = document.querySelector('#login-btn')
 let overlay = document.querySelector('#overlay')
 
+window.addEventListener('load', (e) => {
+  overlay.classList.add('hidden')
+})
+
 loginBtn.addEventListener('click', (e) => {
   overlay.classList.remove('hidden')
 })
