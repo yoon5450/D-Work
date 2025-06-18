@@ -3,6 +3,7 @@
 // 공고 리스트 템플렛 생성
 export function postListTemplate(options){
     const {
+        id,
         company,
         position,
         experience,
