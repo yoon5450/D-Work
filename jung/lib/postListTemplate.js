@@ -12,7 +12,7 @@ export function postListTemplate(options){
         companyscore
     }=options
     return `
-    <tr>
+    <tr data-id="${id}">
               <td>${company}</td>
               <td>${position}</td>
               <td>${experience}</td>
