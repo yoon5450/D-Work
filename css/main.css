@@ -183,7 +183,7 @@ button {
 }
 
 .header-user-name {
-  font-size: clamp(20px, 1.6vw, 26px);
+  font-size: clamp(16px, 1.6vw, 22px);
   font-weight: 600;
 }
 
@@ -208,7 +208,7 @@ main {
   width: 100vw;
   display: flex;
   justify-content: center;
-  gap: 1.7vw;
+  gap: 1.2vw;
 }
 
 /* 메인 캘린더 영역 */
@@ -262,6 +262,44 @@ tbody > tr > td {
   vertical-align: middle;
 }
 
-tbody tr{
+tbody tr {
   border-bottom: 1px solid black;
+}
+
+.main-table-btn-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.main-table-apply-btn {
+  width: 80%;
+  height: 40%;
+  margin: 1.4%;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: #2e8fff;
+  color: white;
+}
+
+.main-table-bookmark-btn {
+  width: 80%;
+  height: 40%;
+  margin: 1.4%;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: #78ce85;
+  color: white;
+}
+
+.activate {
+  background-color: #4fc3f7;
+  color: white;
+  font-weight: 600;
 }
