@@ -2,7 +2,9 @@
 
 export * from './postListTemplate.js';
 export * from './postRender.js';
-export * from './makeSortList.js';
+export * from './makeSortArray.js';
+export * from './handleBookmarkBtnClick.js';
+export * from './handleSort.js';
 
 
 //dom
