@@ -1,3 +1,5 @@
+import { renderCalendar } from "./kim/lib/renderCalendar.js";
+
 let loginBtn = document.querySelector('#login-btn')
 let overlay = document.querySelector('#overlay')
 
@@ -20,4 +22,8 @@ document.querySelector('.login-modal').addEventListener('click', (e) => {
 document.querySelector('.close-btn').addEventListener('click', (e) => {
   let overlay = document.querySelector('#overlay')
   overlay.classList.add('hidden')
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCalendar();
 })
