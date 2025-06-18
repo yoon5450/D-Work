@@ -1,7 +1,7 @@
-
+import user from "../data/dummyUserData.js";
 
 // 공고 리스트 템플렛 생성
-export function postListTemplate(options){
+export function postListTemplate(options,userIndex=0){
     const {
         id,
         company,
@@ -19,6 +19,12 @@ export function postListTemplate(options){
     if(experience[1]===100){
         experienceText=`${experience[0]}년 이상`
     }
+    
+    let bookmarkBtn='<button class="main-table-bookmark-btn">관심목록 추가</button>'
+    if(user()[userIndex].bookmarklist.includes(id)){
+        bookmarkBtn=`<button class="main-table-bookmark-btn activate">내 관심 공고</button>`
+    }
+    
     return `
     <tr data-id="${id}">
               <td>${company}</td>
@@ -31,7 +37,7 @@ export function postListTemplate(options){
               <td>
 								<div class="main-table-btn-wrapper">
                   <button class="main-table-apply-btn">지원하기</button>
-                  <button class="main-table-bookmark-btn">관심목록 추가</button>
+                  ${bookmarkBtn}
                 </div>
             	</td>
             </tr>
