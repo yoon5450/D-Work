@@ -5,7 +5,8 @@ import { isArray, isString } from "./index.js";
 companyscore:number, 
 experience=[number,number], 
 endDate:string, 
-company:string*/
+company:string
+endDate:string*/
 
 // toUpSortArray(data,"company")
 
@@ -13,13 +14,13 @@ company:string*/
 export function toUpSortArray(data,standard){
 
      let newArray = data.sort((a,b)=>{
+       if(isArray(a.standard)){
+         a=a.standard[0]
+         b=b.standard[0]
+       }
       if(isString(a.standard)){
         a=a[standard].toUpperCase()
         b=b[standard].toUpperCase()
-      }
-      if(isArray(a.standard)){
-        a=a.standard[0]
-        b=b.standard[0]
       }
 
       if(a[standard]>b[standard]) return 1;
