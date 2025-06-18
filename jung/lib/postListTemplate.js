@@ -12,11 +12,18 @@ export function postListTemplate(options){
         stack,
         companyscore
     }=options
+    let experienceText=`${experience[0]}~${experience[1]}년`
+    if(experience[0]===0){
+        experienceText=`신입~${experience[1]}년`
+    }
+    if(experience[1]===100){
+        experienceText=`${experience[0]}년 이상`
+    }
     return `
     <tr data-id="${id}">
               <td>${company}</td>
               <td>${position}</td>
-              <td>${experience}</td>
+              <td>${experienceText}</td>
               <td>${location}</td>
               <td>${type}</td>
               <td>${stack}</td>
