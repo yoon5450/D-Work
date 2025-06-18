@@ -9,7 +9,7 @@ export function handleSort(e){
   const target = e.target.closest("th");
   let standard=target.id
   const data=dummyJobPostings()
-  console.log(standard);
+  
 
   
   const toggleFns = [
