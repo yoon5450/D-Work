@@ -400,3 +400,174 @@ tbody tr {
   color: white;
   font-weight: 600;
 }
+
+
+/* 성창식 */
+
+/* 모집부문 시작 */
+.position-popup {
+  position: absolute;
+  z-index: 1000;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+
+}
+.position-popup.hidden {
+  display: none;
+}
+
+.position-search-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.position-search-form input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.position-search-form button {
+  background-color: #4a90e2;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.position-search-form img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+/* 모집부문 끝 */
+
+
+/* 경력 시작 */
+.career-popup {
+  position: absolute;
+  z-index: 1000;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.career-popup.hidden {
+  display: none;
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+}
+
+.career-grid button {
+  padding: 4px 6px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.career-grid button.selected {
+  background-color: #cce5ff;
+  border-color: #007bff;
+}
+
+.career-popup-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#career-filter-toggle {
+  cursor: pointer;
+}
+/* 경력 끝 */
+
+/* 근무지 */
+.jobtype-popup {
+  position: absolute;
+  z-index: 1000;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.jobtype-popup.hidden {
+  display: none;
+}
+
+.jobtype-popup-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#jobtype-filter-toggle {
+  cursor: pointer;
+}
+/* 근무지 끝 */
+
+/* 자격요건 시작 */
+.stack-popup {
+  position: absolute;
+  z-index: 1000;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stack-popup.hidden {
+  display: none;
+}
+
+.stack-search-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.stack-search-form input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.stack-search-form button {
+  background-color: #4a90e2;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.stack-search-form img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+/* 자격요건 끝 */

@@ -1,4 +1,12 @@
 import { renderCalendar, handleClickDay } from "./lib/index.js";
+import {
+  renderJobs,
+  initCareerFilter,
+  dummyJobPostings,
+  initJobTypeFilter,
+  initPositionFilter,
+  initStackFilter,
+} from './sung/index.js';
 
 let loginBtn = document.querySelector('#login-btn')
 let overlay = document.querySelector('#overlay')
@@ -6,6 +14,8 @@ let calendarContainer = document.querySelector('.calendar-container');
 
 window.addEventListener('load', (e) => {
   overlay.classList.add('hidden')
+init()
+
 })
 
 loginBtn.addEventListener('click', (e) => {
@@ -30,3 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 calendarContainer.addEventListener("click", handleClickDay);
+
+function init() {
+  renderJobs(dummyJobPostings);
+  initCareerFilter(dummyJobPostings);
+  initJobTypeFilter(dummyJobPostings);
+  initPositionFilter(dummyJobPostings);
+  initStackFilter(dummyJobPostings);
+}
