@@ -47,10 +47,6 @@ export function initCareerFilter(jobData) {
       selectedCareer = Array.from({ length: max - min + 1 }, (_, i) => min + i); // 범위 배열 생성
       rangeStart = null; // 다음 클릭을 위해 초기화
     }
-/* 
-    highlightButtons(careerGrid, selectedCareer); // 버튼 UI 업데이트
-    const filtered = applyFilterByCareer(jobData, selectedCareer); // 선택된 연차로 필터링
-    renderJobs(filtered); // 필터된 결과 렌더링 */
 
     filterState.career = selectedCareer; // 필터 상태 갱신
     highlightButtons(careerGrid, selectedCareer);
