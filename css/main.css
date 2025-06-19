@@ -50,10 +50,18 @@ button {
   object-fit: cover;
 }
 
+.overlay-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .login-modal form {
   width: 50%;
   height: 100%;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -98,7 +106,7 @@ button {
   border-radius: 0.4rem;
 }
 
-.login-modal form .btn-login {
+.login-modal form .overlay-btn-login {
   width: 60%;
   height: 10%;
   margin: 2%;
@@ -110,7 +118,7 @@ button {
   color: #fdfdfd;
 }
 
-.login-modal form .btn-sign-in {
+.login-modal form .overlay-btn-sign-in-to {
   width: 60%;
   height: 10%;
   margin: 1.4%;
@@ -250,7 +258,7 @@ main {
   height: 29px;
 }
 
-.calendar-container{
+.calendar-container {
   width: 100%;
   height: 75vh;
   overflow-y: auto;
@@ -353,9 +361,8 @@ tbody tr {
   font-weight: 600;
 }
 
-
 /* 푸터 영역 */
-.footer{
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -364,7 +371,7 @@ tbody tr {
   background-color: #78ce8580;
 }
 
-.footer h2{
+.footer h2 {
   font-size: clamp(24px, 4vw, 64px);
   color: white;
 }

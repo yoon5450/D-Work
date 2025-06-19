@@ -10,6 +10,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
     />
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="icon" href="./img/favicon.png" />
 
     <script src="./main.js" type="module"></script>
     <script src="./lib/son/search.js" type="module"></script>
@@ -21,14 +22,26 @@
       <div class="login-modal">
         <img src="./img/login-image.png" />
         <form>
+          <div class="overlay-form-wrapper">
+          <div class="form-header-signin">
+            <h2>회원가입</h2>
+            <button type="button" class="close-btn">×</button>
+          </div>
+          <input type="text" id="overlay-username" placeholder="아이디" />
+          <input type="password" id="overlay-userpass" placeholder="비밀번호" />
+          <button class="overlay-btn-sign-in-submit">회원가입하기</button>
+          </div>
+
+          <div class="overlay-form-wrapper">
           <div class="form-header">
             <h2>일할<br />시간입니다.</h2>
             <button type="button" class="close-btn">×</button>
           </div>
-          <input type="text" placeholder="아이디" />
-          <input type="password" placeholder="비밀번호" />
-          <button class="btn-login">로그인</button>
-          <button class="btn-sign-in">회원가입</button>
+          <input type="text" id="overlay-username" placeholder="아이디" />
+          <input type="password" id="overlay-userpass" placeholder="비밀번호" />
+          <button class="overlay-btn-login">로그인</button>
+          <button class="overlay-btn-sign-in-to">회원가입</button>
+          </div>
         </form>
       </div>
     </div>
@@ -55,11 +68,11 @@
       <section id="main-calendar-section">
         <header class="calendar-header">
           <button id="prev-month-btn" aria-label="이전 달">
-              <img src="./img/prevMonthButton.svg" alt="이전 달 버튼 이미지" />
+            <img src="./img/prevMonthButton.svg" alt="이전 달 버튼 이미지" />
           </button>
-            <span>6월, 2025</span>
+          <span>6월, 2025</span>
           <button id="next-month-btn" aria-label="다음 달">
-              <img src="./img/nextMonthButton.svg" alt="다음 달 버튼 이미지" />
+            <img src="./img/nextMonthButton.svg" alt="다음 달 버튼 이미지" />
           </button>
         </header>
         <div class="calendar-container">
