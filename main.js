@@ -7,7 +7,6 @@ import {
 } from './jung/lib/index.js';
 
 import dummyJobPostings from './jung/data/dummyJobPostingsData.js';
-import dummyUserData from './jung/data/dummyUserData.js';
 
 /*
 1. 데이터 가져와서 데이터 선언하기
@@ -29,8 +28,6 @@ import dummyUserData from './jung/data/dummyUserData.js';
 
 const data= dummyJobPostings()
 // console.log(data);
-const userData = dummyUserData()
-
 
 //관심공고버튼 클릭 이벤트
 getNode('tbody').addEventListener("click",handleBookmarkBtnClick)
