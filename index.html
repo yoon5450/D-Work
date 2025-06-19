@@ -33,6 +33,7 @@
       </div>
     </div>
 
+    
     <!-- 헤더 영역 -->
     <header class="main-header">
       <div class="main-header-title">D-Work</div>
@@ -51,7 +52,17 @@
 
     <!-- 메인 영역 -->
     <main>
-      <!-- 켈린더 영역 -->
+    <!-- 캘린더 모달 영역 -->
+    <div id="calendar-modal" class="hidden">
+      <div class="modal-content">
+        <button id="modal-close-btn" class="modal-close" aria-label="캘린더 모달 닫힘">
+          <img src="./img/closeButton.svg" alt="캘린더 모달 닫힘 버튼 이미지" />
+        </button>
+        <h2>관심 채용 공고 목록</h2>
+        <ul id="company-list"></ul>
+      </div>
+    </div>
+      <!-- 캘린더 영역 -->
       <section id="main-calendar-section">
         <header class="calendar-header">        
           <button id="prev-month-btn" aria-label="이전 달">
