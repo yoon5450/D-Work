@@ -171,7 +171,7 @@ button {
   height: 60px;
   border: 0px;
   border-radius: 30px;
-  font-size: 22px;
+  font-size: clamp(16px, 1vw, 32px);
 }
 
 #search-text:focus {
@@ -213,6 +213,7 @@ main {
   display: flex;
   justify-content: center;
   gap: 1.2vw;
+  margin-bottom: 30px;
 }
 
 /* 메인 캘린더 영역 */
@@ -350,4 +351,20 @@ tbody tr {
   background-color: #4fc3f7;
   color: white;
   font-weight: 600;
+}
+
+
+/* 푸터 영역 */
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  background-color: #78ce8580;
+}
+
+.footer h2{
+  font-size: clamp(24px, 4vw, 64px);
+  color: white;
 }
