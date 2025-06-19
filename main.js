@@ -12,6 +12,8 @@ let overlay = document.querySelector('#overlay')
 
 window.addEventListener('load', (e) => {
   overlay.classList.add('hidden')
+
+
 })
 
 loginBtn.addEventListener('click', (e) => {
@@ -32,9 +34,8 @@ document.querySelector('.close-btn').addEventListener('click', (e) => {
 })
 
 
-// 1. 초기 렌더링 함수 (앱이 시작될 때 실행됨)
 function init() {
-  renderJobs(dummyJobPostings);      
+  renderJobs(dummyJobPostings);
   initCareerFilter(dummyJobPostings);
   initJobTypeFilter(dummyJobPostings);
   initPositionFilter(dummyJobPostings);
