@@ -7,8 +7,6 @@ import {
 }from './lib/index.js';
 import dummyJobPostings from './lib/data/dummyJobPostingsData.js';
 
-import dummyJobPostings from "./jung/data/dummyJobPostingsData.js";
-
 
 let loginBtn = document.querySelector('#login-btn')
 let overlay = document.querySelector('#overlay')
