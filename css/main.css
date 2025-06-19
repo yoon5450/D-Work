@@ -4,6 +4,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: clamp(16px, 0.9vw, 24px);
 }
 
 button {
@@ -305,8 +306,8 @@ th img {
 
 tbody > tr > td {
   height: 12vh;
-  padding-left: 8px;
   vertical-align: middle;
+  text-align: center;
 }
 
 tbody tr {

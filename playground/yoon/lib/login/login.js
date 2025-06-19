@@ -1,24 +1,27 @@
 import {req} from '../index'
 
-export async function reqLogin(id, pass) {
+const DEFAULT_LINK = 'http://13.125.72.193:5000/postings'
+
+
+export async function reqLogin( username, password ) {
   let options = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', // 보내는 데이터 타입
     },
-    body: JSON.stringify({ id, pass }),
+    body: JSON.stringify({ username, password }),
   }
 
-  return await req('./login', options)
+  return await req(`${DEFAULT_LINK}/login`, options)
 }
 
-export async function reqSignIn(id, pass) {
+export async function reqSignIn( username, password ) {
   let options = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json', // 보내는 데이터 타입
     },
-    body: JSON.stringify({ id, pass }),
+    body: JSON.stringify({ username, password }),
   }
-  return await req('./signin', options)
+  return await req(`${DEFAULT_LINK}/signin`, options)
 }
