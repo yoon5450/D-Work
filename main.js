@@ -1,10 +1,21 @@
 import { renderCalendar } from "./kim/lib/renderCalendar.js";
+import {
+  postRender,
+  getNode,
+  handleBookmarkBtnClick,
+  handleSort,
+  
+} from './jung/lib/index.js';
+import dummyJobPostings from "./jung/data/dummyJobPostingsData.js";
+
 
 let loginBtn = document.querySelector('#login-btn')
 let overlay = document.querySelector('#overlay')
+const jobPostingData= dummyJobPostings()
 
 window.addEventListener('load', (e) => {
   overlay.classList.add('hidden')
+  postRender(jobPostingData)
 })
 
 loginBtn.addEventListener('click', (e) => {
@@ -27,3 +38,12 @@ document.querySelector('.close-btn').addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   renderCalendar();
 })
+
+
+//관심공고버튼 클릭 이벤트
+getNode('tbody').addEventListener("click",handleBookmarkBtnClick)
+
+
+
+//정렬버튼 클릭 이벤트
+getNode("thead").addEventListener('click',handleSort);
