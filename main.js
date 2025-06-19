@@ -1,4 +1,4 @@
-import { renderCalendar } from "./kim/lib/renderCalendar.js";
+import { renderCalendar } from "./lib/index.js";
 
 let loginBtn = document.querySelector('#login-btn')
 let overlay = document.querySelector('#overlay')
