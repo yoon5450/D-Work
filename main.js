@@ -1,7 +1,8 @@
-import { renderCalendar } from "./lib/index.js";
+import { renderCalendar, handleClickDay } from "./lib/index.js";
 
 let loginBtn = document.querySelector('#login-btn')
 let overlay = document.querySelector('#overlay')
+let calendarContainer = document.querySelector('.calendar-container');
 
 window.addEventListener('load', (e) => {
   overlay.classList.add('hidden')
@@ -27,3 +28,5 @@ document.querySelector('.close-btn').addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   renderCalendar();
 })
+
+calendarContainer.addEventListener("click", handleClickDay);
