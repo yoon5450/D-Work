@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/main.css" />
 
     <script src="./main.js" type="module"></script>
+    <script src="./lib/son/search.js" type="module"></script>
   </head>
 
   <body>
@@ -52,9 +53,17 @@
     <main>
       <!-- 켈린더 영역 -->
       <section id="main-calendar-section">
-        <header class="claender-header">6월, 2025</header>
-        <div class="calender-continer">
-          <div class="calender-item">
+        <header class="calendar-header">        
+          <button id="prev-month-btn" aria-label="이전 달">
+              <img src="./img/prevMonthButton.svg" alt="이전 달 버튼 이미지" />
+          </button>
+            <span>6월, 2025</span>
+          <button id="next-month-btn" aria-label="다음 달">
+              <img src="./img/nextMonthButton.svg" alt="다음 달 버튼 이미지" />
+          </button>
+        </header>
+        <div class="calendar-container">
+          <div class="calendar-item">
             25
             <div class="date-info">서류-쿠팡</div>
           </div>

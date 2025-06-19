@@ -221,21 +221,65 @@ main {
   background-color: white;
   border: 1px solid #78ce85;
   padding: 0 1.2vw;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 10px;
 }
 
-.calender-item {
+.calendar-header {
   display: flex;
-  width: 100%;
-  height: 40px;
-  border-bottom: #d1d5db80;
-}
-
-.claender-header {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  height: 5.56vh;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.calendar-header img {
+  width: 15px;
+  height: 29px;
+}
+
+.calendar-container{
+  width: 100%;
+  height: 75vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.calendar-item {
+  display: flex;
+  align-items: center;
+  height: 3.7vh;
+  border-bottom: 1px solid rgba(209, 213, 219, 0.5); /* #d1d5db80 */
+  padding: 0 0.8vw;
+  gap: 0.8vw;
+  white-space: nowrap;
+}
+
+.calendar-item > .date-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.date-info-add {
+  /* font-size: 18px; */
+  /* color: #000000; */
 }
 
 /* 메인 테이블 영역 */
