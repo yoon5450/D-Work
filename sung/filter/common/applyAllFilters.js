@@ -51,6 +51,24 @@ export function applyAllFilters(data) {
         return false;
       }
     }
+
+    // 근무지 필터 추가
+    if (Array.isArray(filterState.location) && filterState.location.length > 0) {
+      if (!Array.isArray(job.location)) return false;
+
+      const matched = filterState.location.some(loc =>
+        job.location.some(jobLoc =>
+          jobLoc.toLowerCase().includes(loc.toLowerCase())
+        )
+      );
+      if (!matched) return false;
+    }
+
+    if (filterState.companyscore) {
+      const [min, max] = filterState.companyscore;
+      if (job.companyscore < min || job.companyscore > max) return false;
+    }
+
     return true; // 모든 조건 통과
   });
 }

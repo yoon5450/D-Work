@@ -6,6 +6,8 @@ import {
   initJobTypeFilter,
   initPositionFilter,
   initStackFilter,
+  initLocationFilter,
+  initScoreFilter,
 } from './sung/index.js';
 
 let loginBtn = document.querySelector('#login-btn')
@@ -45,4 +47,6 @@ function init() {
   initJobTypeFilter(dummyJobPostings);
   initPositionFilter(dummyJobPostings);
   initStackFilter(dummyJobPostings);
+  initLocationFilter(dummyJobPostings);
+  initScoreFilter(dummyJobPostings);
 }

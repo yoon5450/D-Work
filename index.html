@@ -71,7 +71,9 @@
       </section>
 
       <!-- 결과 테이블 영역 -->
+       
       <section id="main-result-table-section">
+        <button id="reset-all-filters" class="reset-all-btn">🔄 전체 필터 초기화</button>
         <table class="main-result-table">
           <thead>
             <tr>
@@ -130,9 +132,31 @@
                   </div>
                 </div>
               </th>
-              <th> 근무지
+              <th>근무지
                 <img src="./img/dropdown.svg" id="location-filter-toggle" alt="드롭다운" />
+                <div id="location-popup" class="location-popup hidden">
+                  <div class="location-checkboxes">
+                    <label><input type="checkbox" id="location-seoul-gangnam" value="서울 강남" /> 서울 강남</label>
+                    <label><input type="checkbox" id="location-seoul-songpa" value="서울 송파" /> 서울 송파</label>
+                    <label><input type="checkbox" id="location-seoul-seocho" value="서울 서초" /> 서울 서초</label>
+                    <label><input type="checkbox" id="location-seoul-mapo" value="서울 마포" /> 서울 마포</label>
+                    <label><input type="checkbox" id="location-seoul-gwanghwamun" value="서울 광화문" /> 서울 광화문</label>
+                    <label><input type="checkbox" id="location-seoul-seongsu" value="서울 성수" /> 서울 성수</label>
+                    <label><input type="checkbox" id="location-seoul-seongdong" value="서울 성동" /> 서울 성동</label>
+                    <label><input type="checkbox" id="location-seongnam" value="성남" /> 성남</label>
+                    <label><input type="checkbox" id="location-seongnam-bundang" value="성남 분당" /> 성남 분당</label>
+                    <label><input type="checkbox" id="location-bundang" value="분당" /> 분당</label>
+                    <label><input type="checkbox" id="location-pangyo" value="판교" /> 판교</label>
+                    <label><input type="checkbox" id="location-yeouido" value="서울 여의도" /> 서울 여의도</label>
+                  </div>
+              
+                  <div class="location-popup-buttons">
+                    <button id="location-reset">선택 초기화 ⟳</button>
+                    <button id="location-close">닫기</button>
+                  </div>
+                </div>
               </th>
+              
               <th id="type-filter-th"> 근무형태 
                 <img src="./img/dropdown.svg" id="jobtype-filter-toggle" alt="드롭다운" />
                   <div id="jobtype-popup" class="jobtype-popup hidden">
@@ -164,7 +188,20 @@
                   </div>
                 </div>
               </th>
-              <th id="score-filter-th"> 회사평점 <img src="./img/dropdown.svg" id="score-filter-toggle" alt="드롭다운" /> </th>
+              <th id="score-filter-th">
+                회사평점 
+                <img src="./img/dropdown.svg" id="score-filter-toggle" alt="드롭다운" />
+                  <div id="score-popup" class="score-popup hidden">
+                    <label for="score-min">최소 평점:</label>
+                    <input type="number" id="score-min" min="0" max="5" step="0.1" value="0" />
+                    
+                    <label for="score-max">최대 평점:</label>
+                    <input type="number" id="score-max" min="0" max="5" step="0.1" value="5" />
+                    
+                    <button id="score-apply">적용</button>
+                    <button id="score-reset">초기화</button>
+                  </div>
+              </th>
               <th>관심/상세정보</th>
             </tr>
           </thead>
