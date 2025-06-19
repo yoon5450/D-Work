@@ -4,8 +4,9 @@ import {
   getNode,
   handleBookmarkBtnClick,
   handleSort,
-  
-} from './jung/lib/index.js';
+}from './lib/index.js';
+import dummyJobPostings from './lib/data/dummyJobPostingsData.js';
+
 import dummyJobPostings from "./jung/data/dummyJobPostingsData.js";
 
 
@@ -39,8 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCalendar();
 })
 
-
-//관심공고버튼 클릭 이벤트
+  //관심공고버튼 클릭 이벤트
 getNode('tbody').addEventListener("click",handleBookmarkBtnClick)
 
 
