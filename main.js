@@ -1,3 +1,12 @@
+import {
+  renderJobs,
+  initCareerFilter,
+  dummyJobPostings,
+  initJobTypeFilter,
+  initPositionFilter,
+  initStackFilter,
+} from './sung/index.js';
+
 let loginBtn = document.querySelector('#login-btn')
 let overlay = document.querySelector('#overlay')
 
@@ -21,3 +30,15 @@ document.querySelector('.close-btn').addEventListener('click', (e) => {
   let overlay = document.querySelector('#overlay')
   overlay.classList.add('hidden')
 })
+
+
+// 1. 초기 렌더링 함수 (앱이 시작될 때 실행됨)
+function init() {
+  renderJobs(dummyJobPostings);      
+  initCareerFilter(dummyJobPostings);
+  initJobTypeFilter(dummyJobPostings);
+  initPositionFilter(dummyJobPostings);
+  initStackFilter(dummyJobPostings);
+}
+
+init()
