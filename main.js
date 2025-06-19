@@ -4,9 +4,9 @@ import {
   handleBookmarkBtnClick,
   handleSort,
   
-} from './jung/lib/index.js';
+} from './lib/index.js';
 
-import dummyJobPostings from './jung/data/dummyJobPostingsData.js';
+import dummyJobPostings from './lib/data/dummyJobPostingsData.js';
 
 /*
 1. 데이터 가져와서 데이터 선언하기
