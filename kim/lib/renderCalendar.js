@@ -1,3 +1,6 @@
+import { getUserBookmarkList } from "./userBookmark.js";
+import { dummyJobPostings, bookmarkData, currentUser } from "./dummyData.js";
+
 let currentYear = new Date().getFullYear();
 let currentMonth = new Date().getMonth() + 1;
 
@@ -44,9 +47,24 @@ function renderDay(currentYear, currentMonth){
     calendarContainer.innerHTML = '';
 
     const days = getDays(currentYear, currentMonth);
+    const userbookmarkedInfo = getUserBookmarkList(currentUser, bookmarkData, dummyJobPostings);
 
     for(let day = 1; day <= days; day++){
-        calendarContainer.insertAdjacentHTML('beforeend', createDay(day));
+        const companies = [];
+
+        for (const job of userbookmarkedInfo) {
+        const endDate = new Date(job.endDate);
+
+        if (
+        endDate.getFullYear() === currentYear &&
+        endDate.getMonth() + 1 === currentMonth &&
+        endDate.getDate() === day
+    ) {
+        companies.push(job.company);
+      }
+    }
+
+        calendarContainer.insertAdjacentHTML('beforeend', createDay(day, companies));
     }
 }
 
@@ -57,10 +75,19 @@ function getDays(currentYear, currentMonth){
 }
 
 // 날짜 요소 만드는 함수
-function createDay(day){
-  return `
-    <div class="calender-item">
-      ${day}
-    </div>
-  `;
+function createDay(day, companies){
+    console.log(companies.length);
+    
+    let companyList = companies
+      ? companies.map(c => `<span class="date-info">${c}</span>`).join('')
+      : '';
+    if(companies.length > 1){
+        companyList = `<span class="date-info">${companies[0]}<span class="date-info-add">+${companies.length - 1}</span></span>`;
+    }
+    return `
+        <div class="calendar-item">
+          ${day}
+          ${companyList}
+        </div>
+    `;
 }
