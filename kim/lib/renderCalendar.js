@@ -79,13 +79,13 @@ function createDay(day, companies){
     console.log(companies.length);
     
     let companyList = companies
-      ? companies.map(c => `<span class="date-info">${c}</span>`).join('')
+      ? companies.map(c => `<div class="date-info" >${c}</div>`).join('')
       : '';
     if(companies.length > 1){
-        companyList = `<span class="date-info">${companies[0]}<span class="date-info-add">+${companies.length - 1}</span></span>`;
+        companyList = `<div class="date-info">${companies[0]}<div class="date-info-add">+${companies.length - 1}</div></div>`;
     }
     return `
-        <div class="calendar-item">
+        <div class="calendar-item" data-vaule="${day}">
           ${day}
           ${companyList}
         </div>
