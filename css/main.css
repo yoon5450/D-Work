@@ -11,6 +11,22 @@ button {
   cursor: pointer;
 }
 
+/* 로그인 alert */
+.alert-message {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50; /* 초록색 성공 알림 */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+}
+
 /* 로그인 화면 */
 #overlay {
   position: fixed;
@@ -50,7 +66,9 @@ button {
   object-fit: cover;
 }
 
-.overlay-form-wrapper {
+.overlay-form-wrapper-login {
+  height: 100%;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,6 +78,7 @@ button {
 .login-modal form {
   width: 50%;
   height: 100%;
+  position: relative;
   display: flex;
   overflow: hidden;
   flex-direction: column;
@@ -68,12 +87,11 @@ button {
 }
 
 .form-header {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: start;
   margin-bottom: 2.4rem;
-  position: relative;
 }
 
 .form-header h2 {
@@ -83,6 +101,9 @@ button {
 }
 
 .close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
   background: none;
   border: none;
   font-size: 1.6rem;
@@ -96,8 +117,8 @@ button {
 }
 
 .login-modal form input {
-  width: 60%;
-  height: 10%;
+  width: 10vw;
+  height: 4vh;
   margin: 1.4%;
   padding-left: 0.4rem;
   font-family: 'Noto Sans KR', sans-serif;
@@ -106,12 +127,14 @@ button {
   border-radius: 0.4rem;
 }
 
+/* TODO: nth-child로 통일 가능할 것 같음. */
+
 .login-modal form .overlay-btn-login {
-  width: 60%;
-  height: 10%;
+  width: 11vw;
+  height: 4vh;
   margin: 2%;
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 0.9rem;
+  font-size: clamp(16px, 0.9vw, 28px);
   border: none;
   border-radius: 0.4rem;
   background-color: #7bc4ff;
@@ -119,16 +142,56 @@ button {
 }
 
 .login-modal form .overlay-btn-sign-in-to {
-  width: 60%;
-  height: 10%;
+  width: 11vw;
+  height: 4vh;
   margin: 1.4%;
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 0.9rem;
+  font-size: clamp(16px, 0.9vw, 28px);
   border: none;
   border-radius: 0.4rem;
   background-color: #2e8fff;
   color: #fdfdfd;
 }
+
+/* 회원가입 영역 */
+.overlay-form-wrapper-signin {
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -50%;
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  transition: 0.6s all ease-in;
+}
+
+.login-modal form .overlay-btn-sign-in-to {
+  width: 11vw;
+  height: 4vh;
+  margin: 1.4%;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: clamp(16px, 0.9vw, 28px);
+  border: none;
+  border-radius: 0.4rem;
+  background-color: #2e8fff;
+  color: #fdfdfd;
+}
+
+.login-modal form .overlay-btn-sign-in-submit {
+  width: 11vw;
+  height: 4vh;
+  margin-top: 12%;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: clamp(16px, 0.9vw, 28px);
+  border: none;
+  border-radius: 0.4rem;
+  background-color: #2e8fff;
+  color: #fdfdfd;
+}
+
 
 /* 메인 헤더 영역 */
 .main-header {
@@ -386,9 +449,9 @@ main {
   text-overflow: ellipsis;
   font-size: 16px;
   font-weight: 500;
-  color:dodgerblue;
+  color: dodgerblue;
   > .date-info-add {
-  color: #000000;
+    color: #000000;
   }
 }
 
@@ -396,7 +459,6 @@ main {
 table {
   width: 74.1vw;
   background-color: white;
-  font-size: 20px;
   border: 1px solid #78ce85;
 }
 
@@ -417,6 +479,7 @@ tbody > tr > td {
   height: 12vh;
   vertical-align: middle;
   text-align: center;
+  font-size: clamp(16px, 0.8vw, 24px);
 }
 
 tbody tr {
@@ -437,7 +500,7 @@ tbody tr {
   width: 80%;
   height: 40%;
   margin: 1.4%;
-  font-size: 0.9rem;
+  font-size: clamp(14px, 0.8vw, 22px);
   border: none;
   border-radius: 0.4rem;
   background-color: #2e8fff;
@@ -448,7 +511,7 @@ tbody tr {
   width: 80%;
   height: 40%;
   margin: 1.4%;
-  font-size: 0.9rem;
+  font-size: clamp(14px, 0.8vw, 22px);
   border: none;
   border-radius: 0.4rem;
   background-color: #78ce85;
@@ -491,7 +554,6 @@ tbody tr {
   color: white;
 }
 
-
 /* 성창식 */
 
 /* 모집부문 시작 */
@@ -505,8 +567,6 @@ tbody tr {
   flex-direction: column;
   gap: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
-
 }
 .position-popup.hidden {
   display: none;
@@ -540,7 +600,6 @@ tbody tr {
   vertical-align: middle;
 }
 /* 모집부문 끝 */
-
 
 /* 경력 시작 */
 .career-popup {
@@ -662,8 +721,6 @@ tbody tr {
 
 /* 자격요건 끝 */
 
-
-
 /* 성창식 */
 
 /* 모집부문 시작 */
@@ -677,8 +734,6 @@ tbody tr {
   flex-direction: column;
   gap: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
-
 }
 .position-popup.hidden {
   display: none;
@@ -712,7 +767,6 @@ tbody tr {
   vertical-align: middle;
 }
 /* 모집부문 끝 */
-
 
 /* 경력 시작 */
 .career-popup {

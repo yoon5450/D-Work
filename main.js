@@ -1,4 +1,4 @@
-import { renderCalendar, handleClickDay } from "./lib/index.js";
+import { renderCalendar, handleClickDay, loginExecute } from './lib/index.js'
 import {
   renderJobs,
   initCareerFilter,
@@ -6,33 +6,33 @@ import {
   initJobTypeFilter,
   initPositionFilter,
   initStackFilter,
-} from './sung/index.js';
-import { reqLogin, reqSignIn } from "./lib/index.js";
+} from './sung/index.js'
 
 let loginBtn = document.querySelector('#login-btn')
 let overlayLoginBtn = document.querySelector('.overlay-btn-login')
-let overlayUsernameInput = document.querySelector('#overlay-username');
-let overlayUserpassInput = document.querySelector('#overlay-userpass');
 let overlay = document.querySelector('#overlay')
-let calendarContainer = document.querySelector('.calendar-container');
+let calendarContainer = document.querySelector('.calendar-container')
+let overlaySignInBtnTo = document.querySelector('.overlay-btn-sign-in-to')
 
 window.addEventListener('load', (e) => {
   overlay.classList.add('hidden')
-init()
-
+  init()
 })
 
 loginBtn.addEventListener('click', (e) =>{
   overlay.classList.remove('hidden')
 })
 
-overlayLoginBtn.addEventListener('click', async (e) => {
-  e.preventDefault();
-  const username = overlayUsernameInput;
-  const pass = overlayUserpassInput;
-  let response = await reqLogin(username, pass)
-  console.log(response.msg)
-  
+overlaySignInBtnTo.addEventListener('click', (e) => {
+  e.preventDefault()
+  const siginInLayout = document.querySelector('.overlay-form-wrapper-signin')
+  siginInLayout.style.top = '50%'
+})
+
+overlayLoginBtn.addEventListener('click', (e) => {
+  e.preventDefault()
+  loginExecute()
+  overlay.classList.add('hidden')
 })
 
 document.getElementById('overlay').addEventListener('click', (e) => {
@@ -49,15 +49,15 @@ document.querySelector('.close-btn').addEventListener('click', (e) => {
 })
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderCalendar();
+  renderCalendar()
 })
 
-calendarContainer.addEventListener("click", handleClickDay);
+calendarContainer.addEventListener('click', handleClickDay)
 
 function init() {
-  renderJobs(dummyJobPostings);
-  initCareerFilter(dummyJobPostings);
-  initJobTypeFilter(dummyJobPostings);
-  initPositionFilter(dummyJobPostings);
-  initStackFilter(dummyJobPostings);
+  renderJobs(dummyJobPostings)
+  initCareerFilter(dummyJobPostings)
+  initJobTypeFilter(dummyJobPostings)
+  initPositionFilter(dummyJobPostings)
+  initStackFilter(dummyJobPostings)
 }
