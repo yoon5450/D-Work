@@ -16,11 +16,13 @@ export function applyAllFilters(data) {
 
     // 경력 필터 (career: [0,1,2] 처럼 다중값, job.experience는 [최소, 최대])
     if (Array.isArray(filterState.career) && filterState.career.length > 0) {
-      const [min, max] = job.experience; // 예: [0, 3]
-      const isMatched = filterState.career.some(val => val >= min && val <= max);
+      const [jobMin, jobMax] = job.experience;
+
+      // 사용자가 선택한 career 값들 중 하나라도 이 공고의 범위(jobMin ~ jobMax)에 포함되는지
+      const isMatched = filterState.career.some(val => val >= jobMin && val <= jobMax);
+    
       if (!isMatched) return false;
     }
-    
 
     // 근무형태 필터 (정규직, 계약직 등)
     if (Array.isArray(filterState.jobType) && filterState.jobType.length > 0) {
@@ -28,9 +30,8 @@ export function applyAllFilters(data) {
     }
 
     // 기술스택 필터 (stack은 배열로 비교)
+    // 예외 처리: job.stack이 없거나 배열이 아닐 경우
     if (Array.isArray(filterState.stack) && filterState.stack.length > 0) {
-
-      // 예외 처리: job.stack이 없거나 배열이 아닐 경우
       if (!Array.isArray(job.stack)) {
         console.warn('job.stack이 배열이 아닙니다:', job.stack);
         return false;
@@ -38,9 +39,7 @@ export function applyAllFilters(data) {
 
       // 대소문자 무시하고 모든 키워드가 job.stack 중 하나 이상과 매칭되는지 확인 (AND 조건)
       const matched = filterState.stack.every(keyword =>
-        job.stack.some(s =>
-          s.toLowerCase().includes(keyword.toLowerCase())
-        )
+        job.stack.some(s => s.toLowerCase().includes(keyword.toLowerCase()))
       );
 
       if (!matched) {
@@ -52,7 +51,7 @@ export function applyAllFilters(data) {
       }
     }
 
-    // 근무지 필터 추가
+    // 근무지 필터
     if (Array.isArray(filterState.location) && filterState.location.length > 0) {
       if (!Array.isArray(job.location)) return false;
 
@@ -64,6 +63,7 @@ export function applyAllFilters(data) {
       if (!matched) return false;
     }
 
+    // 회사 평점 필터
     if (filterState.companyscore) {
       const [min, max] = filterState.companyscore;
       if (job.companyscore < min || job.companyscore > max) return false;

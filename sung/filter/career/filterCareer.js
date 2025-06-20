@@ -34,7 +34,10 @@ export function initCareerFilter(jobData) {
 
   //  연차 버튼 클릭 시 범위 선택 처리
   careerGrid.addEventListener('click', (e) => {
-    const val = Number(e.target.dataset.value); // 클릭한 버튼의 data-value
+    const targetButton = e.target.closest('button[data-value]');
+    if (!targetButton) return;
+    
+    const val = Number(targetButton.dataset.value); // 클릭한 버튼의 data-value
     if (isNaN(val)) return; // 유효한 숫자가 아닐 경우 종료
 
     // 첫 번째 클릭이면 시작 값 저장
@@ -61,16 +64,6 @@ export function initCareerFilter(jobData) {
     const isExperienced = checkboxExperienced.checked;
     const isAny = checkboxAny.checked;
 
-    /* const filtered = jobData.filter(job => {
-      const [min] = job.experience;
-
-      // console.log(jobData);
-      if ((isNewbie && min === 0) || (isAny && min === 0)) return true;     // 신입 OR 경력무관: 최소 연차가 0인 경우
-      if (isExperienced && min >= 1) return true; // 경력: 최소 연차가 1 이상인 경우
-
-      return false;
-    }); */
-
     const updatedCareer = [];
 
     if (isNewbie || isAny) updatedCareer.push(0);
@@ -79,6 +72,9 @@ export function initCareerFilter(jobData) {
     }
 
     filterState.career = updatedCareer; // 전역 상태 업데이트
+
+
+    // 전체 필터 적용 → 필터링 결과 확인
     const filtered = applyAllFilters(jobData); // 전체 필터로 렌더링
 
     renderJobs(filtered); // 결과 반영
@@ -117,3 +113,5 @@ function highlightButtons(container, selectedList) {
     btn.classList.toggle('selected', selectedList.includes(value));
   });
 }
+
+
