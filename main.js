@@ -1,25 +1,26 @@
+import dummyJobPostingsData from './lib/data/dummyJobPostingsData.js';
 import {
-  postRender,
   getNode,
   handleBookmarkBtnClick,
   handleSort,
-}from './lib/index.js';
-import dummyJobPostings from './lib/data/dummyJobPostingsData.js';
+  postRender,
+} from './lib/index.js';
 
-import { renderCalendar, handleClickDay, loginExecute } from './lib/index.js'
+import { handleClickDay, loginExecute, renderCalendar } from './lib/index.js';
+
 import {
-  renderJobs,
-  initCareerFilter,
   dummyJobPostings,
+  initCareerFilter,
   initJobTypeFilter,
   initPositionFilter,
   initStackFilter,
-} from './sung/index.js'
+  renderJobs,
+} from './sung/index.js';
 
 let loginBtn = document.querySelector('#login-btn')
 let overlayLoginBtn = document.querySelector('.overlay-btn-login')
 let overlay = document.querySelector('#overlay')
-const jobPostingData= dummyJobPostings()
+const jobPostingData= dummyJobPostingsData()
 let calendarContainer = document.querySelector('.calendar-container')
 let overlaySignInBtnTo = document.querySelector('.overlay-btn-sign-in-to')
 
@@ -65,13 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
   //관심공고버튼 클릭 이벤트
 getNode('tbody').addEventListener("click",handleBookmarkBtnClick)
 
-
-
 //정렬버튼 클릭 이벤트
 getNode("thead").addEventListener('click',handleSort);
 
-  renderCalendar()
-})
+renderCalendar()
+
 
 calendarContainer.addEventListener('click', handleClickDay)
 
