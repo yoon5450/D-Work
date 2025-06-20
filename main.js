@@ -8,7 +8,7 @@ import {
 import {
   renderJobs,
   initCareerFilter,
-  dummyJobPostings,
+  //dummyJobPostings,
   initJobTypeFilter,
   initPositionFilter,
   initStackFilter,
