@@ -7,7 +7,6 @@ import {
   initPositionFilter,
   initStackFilter,
 } from './sung/index.js';
-import { renderCalendar } from "./kim/lib/renderCalendar.js";
 import { reqLogin, reqSignIn } from "./lib/index.js";
 
 let loginBtn = document.querySelector('#login-btn')
