@@ -1,4 +1,10 @@
-import { renderCalendar, handleClickDay } from "./lib/index.js";
+import { 
+  closeBtn,
+  calendarModal,
+  calendarModalClose,
+  calendarModalCloseAuto,
+  renderCalendar, 
+  handleClickDay } from "./lib/index.js";
 import {
   renderJobs,
   initCareerFilter,
@@ -40,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 calendarContainer.addEventListener("click", handleClickDay);
+closeBtn.addEventListener("click", calendarModalClose);
+calendarModal.addEventListener("click", calendarModalCloseAuto);
 
 function init() {
   renderJobs(dummyJobPostings);
