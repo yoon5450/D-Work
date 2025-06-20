@@ -13,15 +13,25 @@ import {
   initPositionFilter,
   initStackFilter,
 } from './sung/index.js';
+import {
+  postRender,
+  getNode,
+  handleBookmarkBtnClick,
+  handleSort,
+}from './lib/index.js';
+import dummyJobPostings from './lib/data/dummyJobPostingsData.js';
+
 
 let loginBtn = document.querySelector('#login-btn')
 let overlay = document.querySelector('#overlay')
 let calendarContainer = document.querySelector('.calendar-container');
+const jobPostingData= dummyJobPostings()
 
 window.addEventListener('load', (e) => {
   overlay.classList.add('hidden')
-init()
+  init()
 
+  postRender(jobPostingData)
 })
 
 loginBtn.addEventListener('click', (e) => {
@@ -56,3 +66,12 @@ function init() {
   initPositionFilter(dummyJobPostings);
   initStackFilter(dummyJobPostings);
 }
+
+
+  //관심공고버튼 클릭 이벤트
+getNode('tbody').addEventListener("click",handleBookmarkBtnClick)
+
+
+
+//정렬버튼 클릭 이벤트
+getNode("thead").addEventListener('click',handleSort);
