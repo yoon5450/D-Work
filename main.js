@@ -1,3 +1,12 @@
+import { renderCalendar, handleClickDay } from "./lib/index.js";
+import {
+  renderJobs,
+  initCareerFilter,
+  dummyJobPostings,
+  initJobTypeFilter,
+  initPositionFilter,
+  initStackFilter,
+} from './sung/index.js';
 import { renderCalendar } from "./kim/lib/renderCalendar.js";
 import { reqLogin, reqSignIn } from "./lib/index.js";
 
@@ -6,10 +15,12 @@ let overlayLoginBtn = document.querySelector('.overlay-btn-login')
 let overlayUsernameInput = document.querySelector('#overlay-username');
 let overlayUserpassInput = document.querySelector('#overlay-userpass');
 let overlay = document.querySelector('#overlay')
-
+let calendarContainer = document.querySelector('.calendar-container');
 
 window.addEventListener('load', (e) => {
   overlay.classList.add('hidden')
+init()
+
 })
 
 loginBtn.addEventListener('click', (e) =>{
@@ -41,3 +52,13 @@ document.querySelector('.close-btn').addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   renderCalendar();
 })
+
+calendarContainer.addEventListener("click", handleClickDay);
+
+function init() {
+  renderJobs(dummyJobPostings);
+  initCareerFilter(dummyJobPostings);
+  initJobTypeFilter(dummyJobPostings);
+  initPositionFilter(dummyJobPostings);
+  initStackFilter(dummyJobPostings);
+}
