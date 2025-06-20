@@ -1,12 +1,13 @@
-import dummyJobPostingsData from './lib/data/dummyJobPostingsData.js';
+import dummyJobPostingsData from './lib/data/dummyJobPostingsData.js'
 import {
   getNode,
   handleBookmarkBtnClick,
   handleSort,
   postRender,
-} from './lib/index.js';
+  signInExecute,
+} from './lib/index.js'
 
-import { handleClickDay, loginExecute, renderCalendar } from './lib/index.js';
+import { handleClickDay, loginExecute, renderCalendar } from './lib/index.js'
 
 import {
   dummyJobPostings,
@@ -15,14 +16,16 @@ import {
   initPositionFilter,
   initStackFilter,
   renderJobs,
-} from './sung/index.js';
+} from './sung/index.js'
 
 let loginBtn = document.querySelector('#login-btn')
 let overlayLoginBtn = document.querySelector('.overlay-btn-login')
-let overlay = document.querySelector('#overlay')
-const jobPostingData= dummyJobPostingsData()
+const jobPostingData = dummyJobPostingsData()
 let calendarContainer = document.querySelector('.calendar-container')
 let overlaySignInBtnTo = document.querySelector('.overlay-btn-sign-in-to')
+let overlyaSingInBtnSubmit = document.querySelector('.overlay-btn-sign-in-submit')
+let overlay = document.querySelector('#overlay')
+let overlayForm = document.querySelector('.overlay-form')
 
 window.addEventListener('load', (e) => {
   overlay.classList.add('hidden')
@@ -30,7 +33,11 @@ window.addEventListener('load', (e) => {
   init()
 })
 
-loginBtn.addEventListener('click', (e) =>{
+overlayForm.addEventListener('submit', (e) =>{
+  e.preventDefault();
+})
+
+loginBtn.addEventListener('click', (e) => {
   overlay.classList.remove('hidden')
 })
 
@@ -40,11 +47,9 @@ overlaySignInBtnTo.addEventListener('click', (e) => {
   siginInLayout.style.top = '50%'
 })
 
-overlayLoginBtn.addEventListener('click', (e) => {
-  e.preventDefault()
-  loginExecute()
-  overlay.classList.add('hidden')
-})
+overlayLoginBtn.addEventListener('click', loginExecute)
+
+overlyaSingInBtnSubmit.addEventListener('click', signInExecute)
 
 document.getElementById('overlay').addEventListener('click', (e) => {
   e.currentTarget.classList.add('hidden')
@@ -60,17 +65,16 @@ document.querySelector('.close-btn').addEventListener('click', (e) => {
 })
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderCalendar();
+  renderCalendar()
 })
 
-  //관심공고버튼 클릭 이벤트
-getNode('tbody').addEventListener("click",handleBookmarkBtnClick)
+//관심공고버튼 클릭 이벤트
+getNode('tbody').addEventListener('click', handleBookmarkBtnClick)
 
 //정렬버튼 클릭 이벤트
-getNode("thead").addEventListener('click',handleSort);
+getNode('thead').addEventListener('click', handleSort)
 
 renderCalendar()
-
 
 calendarContainer.addEventListener('click', handleClickDay)
 
