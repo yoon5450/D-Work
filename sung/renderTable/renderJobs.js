@@ -22,7 +22,7 @@ export function renderJobs(jobs) {
         <td>
           <div class="main-table-btn-wrapper">
             <button class="main-table-apply-btn">지원하기</button>
-            <button class="main-table-bookmark-btn">관심목록 추가</button>
+            <button class="main-table-bookmark-btn">관심목록 +</button>
           </div>
         </td>
       `;
