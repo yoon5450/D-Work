@@ -58,7 +58,7 @@ function getSelectedTypes(checkboxes) {
 
   if (checkboxes.fulltime.checked) types.push('정규직');
   if (checkboxes.contract.checked) types.push('계약직');
-  if (checkboxes.intern.checked) types.push('인턴직');
+  if (checkboxes.intern.checked) types.push('인턴');
   if (checkboxes.freelance.checked) types.push('프리랜서');
 
   return types;

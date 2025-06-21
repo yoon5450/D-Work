@@ -887,3 +887,124 @@ tbody tr {
 }
 
 /* 자격요건 끝 */
+
+/* 근무지 시작 */
+.location-popup {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  width: 260px;
+  z-index: 10;
+}
+
+.location-popup.hidden {
+  display: none;
+}
+
+.location-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.location-popup-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+/* 근무지 종료 */
+
+/* 회사평점 시작 */
+#score-popup {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  width: 260px;
+  z-index: 10;
+}
+
+/* 숨김 처리 */
+.hidden {
+  display: none;
+}
+
+/* 라벨과 입력 칸을 세로 정렬 */
+#score-popup label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+/* 숫자 입력 필드 스타일 */
+#score-popup input[type="number"] {
+  width: 100%;
+  padding: 6px 8px;
+  margin-top: 4px;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+#score-popup input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* 버튼 컨테이너 */
+#score-popup button {
+  margin-top: 12px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+/* 적용 버튼 스타일 */
+#score-apply {
+  background-color: #007bff;
+  color: white;
+  margin-right: 8px;
+}
+
+#score-apply:hover {
+  background-color: #0056b3;
+}
+
+/* 초기화 버튼 스타일 */
+#score-reset {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+#score-reset:hover {
+  background-color: #d4d4d4;
+}
+/* 회사평점 종료 */
+
+/* 필터 전체 초가화 */
+.reset-all-btn {
+  margin-left: 10px;
+  padding: 6px 12px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.reset-all-btn:hover {
+  background-color: #d32f2f;
+}
