@@ -6,23 +6,17 @@ import {
   postRender,
   signInExecute,
 } from './lib/index.js'
-
 import { handleClickDay, loginExecute, renderCalendar } from './lib/index.js'
-
 import {
   dummyJobPostings,
   initCareerFilter,
   initJobTypeFilter,
   initPositionFilter,
   initStackFilter,
-<<<<<<< HEAD
   renderJobs,
-} from './sung/index.js'
-=======
   initLocationFilter,
   initScoreFilter,
 } from './sung/index.js';
->>>>>>> e9334b1ca4e875bceb1e4aee904ce6b14921dc39
 
 let loginBtn = document.querySelector('#login-btn')
 let overlayLoginBtn = document.querySelector('.overlay-btn-login')
@@ -85,13 +79,6 @@ renderCalendar()
 calendarContainer.addEventListener('click', handleClickDay)
 
 function init() {
-<<<<<<< HEAD
-  renderJobs(dummyJobPostings)
-  initCareerFilter(dummyJobPostings)
-  initJobTypeFilter(dummyJobPostings)
-  initPositionFilter(dummyJobPostings)
-  initStackFilter(dummyJobPostings)
-=======
   renderJobs(dummyJobPostings);
   initCareerFilter(dummyJobPostings);
   initJobTypeFilter(dummyJobPostings);
@@ -99,5 +86,4 @@ function init() {
   initStackFilter(dummyJobPostings);
   initLocationFilter(dummyJobPostings);
   initScoreFilter(dummyJobPostings);
->>>>>>> e9334b1ca4e875bceb1e4aee904ce6b14921dc39
 }
