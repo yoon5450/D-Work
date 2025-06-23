@@ -121,3 +121,4 @@ git add .
 git commit -m "feat: 헤더 컴포넌트 추가"
 git push origin yoon
 ```
+- 김윤지
