@@ -7,7 +7,7 @@ export const dummyJobPostings = [
       experience: [2, 6],
       location: ["판교"],
       type: "정규직",
-      companyscore: 3.82,
+      companyscore: 3.00,
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ export const dummyJobPostings = [
       experience: [3, 100],
       location: ["분당"],
       type: "인턴",
-      companyscore: 4.15,
+      companyscore: 3.15,
     },
     {
       id: 3,
