@@ -1,3 +1,4 @@
+import { setSessionStorage } from '../../../lib/storage/sessionStorage.js';
 import { renderJobs } from '../../renderTable/index.js';
 import { filterState, applyAllFilters } from '../common/index.js';
 
@@ -40,7 +41,9 @@ export function initStackFilter(jobData) {
     }
 
     searchInput.value = ''; // 입력창 초기화
+
     renderJobs(applyAllFilters(jobData)); // 전체 필터 적용 후 렌더링
+    setSessionStorage(jobData);
   });
 
 
