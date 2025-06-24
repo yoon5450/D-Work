@@ -24,7 +24,7 @@
     <div id="overlay" class="hidden">
       <div class="login-modal">
         <img src="./img/login-image.png" />
-        <form>
+        <form class="overlay-form">
           <button type="button" class="close-btn">×</button>
 
           <div class="overlay-form-wrapper-signin">
@@ -97,6 +97,7 @@
       </section>
 
       <!-- 결과 테이블 영역 -->
+       
       <section id="main-result-table-section">
         <table class="main-result-table">
           <thead>
@@ -129,26 +130,26 @@
                   <label><input type="checkbox" id="career-any" /> 경력무관</label>
 
                   <div class="career-grid" id="career-grid">
-                    <button data-value="0">~1년</button>
-                    <button data-value="1">2년</button>
-                    <button data-value="2">3년</button>
-                    <button data-value="3">4년</button>
-                    <button data-value="4">5년</button>
-                    <button data-value="5">6년</button>
-                    <button data-value="6">7년</button>
-                    <button data-value="7">8년</button>
-                    <button data-value="8">9년</button>
-                    <button data-value="9">10년</button>
-                    <button data-value="10">11년</button>
-                    <button data-value="11">12년</button>
-                    <button data-value="12">13년</button>
-                    <button data-value="13">14년</button>
-                    <button data-value="14">15년</button>
-                    <button data-value="15">16년</button>
-                    <button data-value="16">17년</button>
-                    <button data-value="17">18년</button>
-                    <button data-value="18">19년</button>
-                    <button data-value="19">20년~</button>
+                    <button data-value="1">~1년</button>
+                    <button data-value="2">2년</button>
+                    <button data-value="3">3년</button>
+                    <button data-value="4">4년</button>
+                    <button data-value="5">5년</button>
+                    <button data-value="6">6년</button>
+                    <button data-value="7">7년</button>
+                    <button data-value="8">8년</button>
+                    <button data-value="9">9년</button>
+                    <button data-value="10">10년</button>
+                    <button data-value="11">11년</button>
+                    <button data-value="12">12년</button>
+                    <button data-value="13">13년</button>
+                    <button data-value="14">14년</button>
+                    <button data-value="15">15년</button>
+                    <button data-value="16">16년</button>
+                    <button data-value="17">17년</button>
+                    <button data-value="18">18년</button>
+                    <button data-value="19">19년</button>
+                    <button data-value="20">20년~</button>
                   </div>
 
                   <div class="career-popup-buttons">
@@ -160,6 +161,27 @@
               <th>
                 근무지
                 <img src="./img/dropdown.svg" id="location-filter-toggle" alt="드롭다운" />
+                <div id="location-popup" class="location-popup hidden">
+                  <div class="location-checkboxes">
+                    <label><input type="checkbox" id="location-seoul-gangnam" value="서울 강남" /> 서울 강남</label>
+                    <label><input type="checkbox" id="location-seoul-songpa" value="서울 송파" /> 서울 송파</label>
+                    <label><input type="checkbox" id="location-seoul-seocho" value="서울 서초" /> 서울 서초</label>
+                    <label><input type="checkbox" id="location-seoul-mapo" value="서울 마포" /> 서울 마포</label>
+                    <label><input type="checkbox" id="location-seoul-gwanghwamun" value="서울 광화문" /> 서울 광화문</label>
+                    <label><input type="checkbox" id="location-seoul-seongsu" value="서울 성수" /> 서울 성수</label>
+                    <label><input type="checkbox" id="location-seoul-seongdong" value="서울 성동" /> 서울 성동</label>
+                    <label><input type="checkbox" id="location-seongnam" value="성남" /> 성남</label>
+                    <label><input type="checkbox" id="location-seongnam-bundang" value="성남 분당" /> 성남 분당</label>
+                    <label><input type="checkbox" id="location-bundang" value="분당" /> 분당</label>
+                    <label><input type="checkbox" id="location-pangyo" value="판교" /> 판교</label>
+                    <label><input type="checkbox" id="location-yeouido" value="서울 여의도" /> 서울 여의도</label>
+                  </div>
+              
+                  <div class="location-popup-buttons">
+                    <button id="location-reset">선택 초기화 ⟳</button>
+                    <button id="location-close">닫기</button>
+                  </div>
+                </div>
               </th>
               <th id="type-filter-th">
                 근무형태
@@ -193,7 +215,20 @@
                   </div>
                 </div>
               </th>
-              <th id="companyscore">회사평점 <img src="./img/dropdown.svg" alt="드롭다운" /></th>
+              <th id="score-filter-th">
+                회사평점 
+                <img src="./img/dropdown.svg" id="score-filter-toggle" alt="드롭다운" />
+                  <div id="score-popup" class="score-popup hidden">
+                    <label for="score-min">최소 평점:</label>
+                    <input type="number" id="score-min" min="0" max="5" step="0.1" value="0" />
+                    
+                    <label for="score-max">최대 평점:</label>
+                    <input type="number" id="score-max" min="0" max="5" step="0.1" value="5" />
+                    
+                    <button id="score-apply">적용</button>
+                    <button id="score-reset">초기화</button>
+                  </div>
+              </th>
               <th>관심/상세정보</th>
             </tr>
           </thead>

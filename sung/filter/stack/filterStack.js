@@ -1,3 +1,4 @@
+import { setSessionStorage } from '../../../lib/storage/sessionStorage.js';
 import { renderJobs } from '../../renderTable/index.js';
 import { filterState, applyAllFilters } from '../common/index.js';
 
@@ -7,12 +8,16 @@ export function initStackFilter(jobData) {
   const popup = document.getElementById('stack-popup');
   const searchForm = document.getElementById('stack-search-form');
   const searchInput = document.getElementById('stack-search');
-  const selectedTag = document.getElementById('stack-selected-tag');
   const resetBtn = document.getElementById('stack-reset');
   const closeBtn = document.getElementById('stack-close');
 
+  // 배열로 초기화
+  if (!Array.isArray(filterState.stack)) {
+    filterState.stack = [];
+  }
+
   // 드롭다운 열기/닫기
-  console.log(toggleBtn);
+  // console.log(toggleBtn);
   toggleBtn.addEventListener('click', () => {
     popup.classList.toggle('hidden');
   });
@@ -27,39 +32,25 @@ export function initStackFilter(jobData) {
   // 검색 이벤트 처리
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const keyword = searchInput.value.trim();
+    const keyword = searchInput.value.trim().toLowerCase();
     if (!keyword) return;
 
-    filterState.stack = keyword.toLowerCase(); // 상태 저장 (소문자 비교용)
-    /* renderStackTag(keyword); // 태그로 렌더링 */
+    // 중복 방지 후 배열에 추가
+    if (!filterState.stack.includes(keyword)) {
+      filterState.stack.push(keyword);
+    }
+
+    searchInput.value = ''; // 입력창 초기화
+
     renderJobs(applyAllFilters(jobData)); // 전체 필터 적용 후 렌더링
+    setSessionStorage(jobData);
   });
 
-/*   // 태그 렌더링 함수
-  function renderStackTag(keyword) {
-    selectedTag.innerHTML = `
-      <div class="stack-tag">
-        <span>${keyword}</span>
-        <span class="remove">&times;</span>
-      </div>
-    `;
-  }
-
-  // 태그 제거
-  selectedTag.addEventListener('click', (e) => {
-    if (e.target.classList.contains('remove')) {
-      filterState.stack = null;
-      selectedTag.innerHTML = '';
-      searchInput.value = '';
-      renderJobs(applyAllFilters(jobData));
-    }
-  }); */
 
   // 초기화 버튼
   resetBtn.addEventListener('click', () => {
-    filterState.stack = null;
+    filterState.stack = [];
     searchInput.value = '';
-    selectedTag.innerHTML = '';
     renderJobs(applyAllFilters(jobData));
   });
 
