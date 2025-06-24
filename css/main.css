@@ -207,6 +207,7 @@ button {
   font-size: clamp(20px, 3.8vw, 68px);
   font-weight: 600;
   color: #78ce85;
+	cursor:pointer;
 }
 
 .search-form {
