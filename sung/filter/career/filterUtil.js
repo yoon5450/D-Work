@@ -8,7 +8,7 @@ export function applyFilterByCareer(jobData, selectedCareer) {
   });
 }
 
-// 경력 필터 UI 초기화
+//  필터 UI 초기화
 export function resetCareerFilter(popup, grid) {
   popup.querySelectorAll('input[type="checkbox"]').forEach(chk => (chk.checked = false));
   grid.querySelectorAll('button[data-value]').forEach(btn => btn.classList.remove('selected'));
