@@ -1,11 +1,12 @@
 // 경력 필터 관련 유틸 함수와 테이블 렌더링 함수 import
 // import { renderJobs } from '../../renderTable/index.js';
-import { postRender } from '../filterIndex.js';
+import { getPosting, getSessionStorage, postRender, setSessionStorage } from '../filterIndex.js';
 import { resetCareerFilter } from './filterUtil.js';
 import { filterState, applyAllFilters } from '../common/index.js';
 
 // 경력 필터 초기화 및 전체 이벤트 등록 함수 (앱 시작 시 실행됨)
 export function initCareerFilter(jobData) {
+
   // HTML 요소들 가져오기: 버튼, 팝업, 체크박스, 버튼 그리드 등
   const toggleBtn = document.getElementById('career-filter-toggle'); // 필터 열기 버튼
   const popup = document.getElementById('career-popup');             // 팝업 전체 영역

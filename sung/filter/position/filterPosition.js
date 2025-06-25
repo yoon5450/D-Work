@@ -10,9 +10,6 @@ export function initPositionFilter(jobData) {
   const searchForm = document.getElementById('position-search-form');
   const searchInput = document.getElementById('position-search');
 
-
-  console.log(searchForm, searchInput);
-
   // 상태 배열로 초기화
   if (!Array.isArray(filterState.position)) {
     filterState.position = [];
