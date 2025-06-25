@@ -301,7 +301,7 @@ main {
   width: 100%;
   height: 100%;
   background-color: #00000080;
-  font-size: 20px;
+  font-size: clamp(14px, 2.5vw, 20px);
   font-weight: 700;
 }
 
@@ -311,7 +311,7 @@ main {
 
 .modal-content {
   position: relative;
-  width: 17vw;
+  width: clamp(250px, 70vw, 600px);
   max-height: 80vh;
   padding: 20px 20px;
   overflow-y: auto;
@@ -324,70 +324,20 @@ main {
   border: none;
   cursor: pointer;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: clamp(12px, 2vw, 20px);
+  right: clamp(12px, 2vw, 20px);
 }
 
 #company-list {
-  margin-top: 20px;
+  margin-top: clamp(12px, 2.5vw, 20px);
   list-style-type: square;
-  padding-left: 20px;
-  font-size: 18px;
+  padding-left: clamp(16px, 3vw, 24px);
+  font-size: clamp(14px, 1.5vw, 18px);
   font-weight: 500;
 }
 
 #company-list li {
-  margin-bottom: 10px;
-}
-
-/* 캘린더 모달 영역 */
-#calendar-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #00000080;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-#calendar-modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  position: relative;
-  width: 17vw;
-  max-height: 80vh;
-  padding: 20px 20px;
-  overflow-y: auto;
-  background-color: #ffffff;
-  border-radius: 10px;
-}
-
-#modal-close-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-#company-list {
-  margin-top: 20px;
-  list-style-type: square;
-  padding-left: 20px;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-#company-list li {
-  margin-bottom: 10px;
+  margin-bottom: clamp(6px, 1vw, 10px);
 }
 
 /* 메인 캘린더 영역 */
@@ -397,19 +347,18 @@ main {
   background-color: white;
   border: 1px solid #78ce85;
   padding: 0 1.2vw;
-  font-size: 24px;
+  font-size: clamp(10px, 1.1vw, 22px);
   font-weight: 700;
   border-radius: 10px;
 }
 
 .calendar-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around; 
   align-items: center;
   height: 7vh;
   width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
+  overflow-x: auto;
 }
 
 .calendar-header button {
@@ -419,8 +368,8 @@ main {
 }
 
 .calendar-header img {
-  width: 20px;
-  height: 25px;
+  width: clamp(5px, 1.4vw, 20px);
+  height: clamp(8px, 1.6vw, 25px);
 }
 
 .calendar-container {
@@ -438,7 +387,7 @@ main {
   padding: 0 0.8vw;
   gap: 0.8vw;
   white-space: nowrap;
-  font-size: 20px;
+  font-size: clamp(8px, 0.9vw, 18px);
 }
 
 .calendar-item > .date-info {
@@ -449,7 +398,7 @@ main {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 16px;
+  font-size: clamp(8px, 0.8vw, 16px);
   font-weight: 500;
   color: dodgerblue;
   > .date-info-add {
