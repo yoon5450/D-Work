@@ -1,5 +1,6 @@
 import { setSessionStorage } from '../../../lib/storage/sessionStorage.js';
-import { renderJobs } from '../../renderTable/index.js';
+// import { renderJobs } from '../../renderTable/index.js';
+import { postRender } from '../filterIndex.js';
 import { filterState, applyAllFilters } from '../common/index.js';
 
 // 스택 필터 초기화 함수
@@ -23,11 +24,25 @@ export function initStackFilter(jobData) {
   });
 
   // 외부 클릭 시 닫기
+  // document.addEventListener('click', (e) => {
+  //   if (!popup.contains(e.target) && !toggleBtn.contains(e.target)) {
+  //     popup.classList.add('hidden');
+  //   }
+  // });
+  
+  // 외부 클릭 시 닫기 (입력창이나 폼 내부 클릭 시 제외)
   document.addEventListener('click', (e) => {
-    if (!popup.contains(e.target) && !toggleBtn.contains(e.target)) {
+    const isInsidePopup = e.target.closest('#stack-popup');
+    const isToggleBtn = toggleBtn.contains(e.target);
+    if (!isInsidePopup && !isToggleBtn) {
       popup.classList.add('hidden');
     }
   });
+
+  // 입력창/폼 클릭 시 팝업 닫힘 방지
+  searchInput.addEventListener('click', e => e.stopPropagation());
+  // e.stopPropagation() => toggleBtn, input, form 클릭 시 팝업 닫힘 방지
+  searchForm.addEventListener('click', e => e.stopPropagation());
 
   // 검색 이벤트 처리
   searchForm.addEventListener('submit', (e) => {
@@ -42,7 +57,7 @@ export function initStackFilter(jobData) {
 
     searchInput.value = ''; // 입력창 초기화
 
-    renderJobs(applyAllFilters(jobData)); // 전체 필터 적용 후 렌더링
+    postRender(applyAllFilters(jobData)); // 전체 필터 적용 후 렌더링
     setSessionStorage(jobData);
   });
 
@@ -51,7 +66,7 @@ export function initStackFilter(jobData) {
   resetBtn.addEventListener('click', () => {
     filterState.stack = [];
     searchInput.value = '';
-    renderJobs(applyAllFilters(jobData));
+    postRender(applyAllFilters(jobData));
   });
 
   // 닫기 버튼

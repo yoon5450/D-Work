@@ -1,4 +1,5 @@
-import { renderJobs } from '../../renderTable/index.js';
+// import { renderJobs } from '../../renderTable/index.js';
+import { postRender } from '../filterIndex.js';
 import { filterState, applyAllFilters } from '../common/index.js';
 
 export function initScoreFilter(jobData) {
@@ -20,7 +21,7 @@ export function initScoreFilter(jobData) {
     const maxScore = parseFloat(maxInput.value) || 5;
 
     filterState.companyscore = [minScore, maxScore];
-    renderJobs(applyAllFilters(jobData));
+    postRender(applyAllFilters(jobData));
   });
 
   // 초기화 버튼 클릭
@@ -28,7 +29,7 @@ export function initScoreFilter(jobData) {
     minInput.value = 0;
     maxInput.value = 5;
     filterState.companyscore = null; // 필터 초기화
-    renderJobs(applyAllFilters(jobData));
+    postRender(applyAllFilters(jobData));
   });
 
   // 외부 클릭 시 팝업 닫기
