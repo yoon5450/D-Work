@@ -86,7 +86,10 @@
           <span>6월, 2025</span>
           <button id="next-month-btn" aria-label="다음 달">
             <img src="./img/nextMonthButton.svg" alt="다음 달 버튼 이미지" />
-          </button>
+        </button>
+        <button id="note-btn" class="note" aria-label="캘린더 노트">
+          <img src="./img/note_plus.png" alt="노트 플러스 버튼 이미지" />
+        </button>
         </header>
         <div class="calendar-container">
           <div class="calendar-item">
@@ -96,6 +99,16 @@
         </div>
       </section>
 
+      <!-- 노트 편집기 -->
+      <section id="note-section">
+        <header id="note-header">
+          developer의 노트
+        </header>
+          <div id="editor-container">
+            <div class="block" contenteditable="true" data-type="text"></div>
+          </div>
+        <button id="back-to-calendar">캘린더로 돌아가기</button>
+      </section>
       <!-- 결과 테이블 영역 -->
        
       <section id="main-result-table-section">
