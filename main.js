@@ -79,11 +79,11 @@ renderCalendar()
 calendarContainer.addEventListener('click', handleClickDay)
 
 function init() {
-  renderJobs(dummyJobPostings);
-  initCareerFilter(dummyJobPostings);
-  initJobTypeFilter(dummyJobPostings);
-  initPositionFilter(dummyJobPostings);
-  initStackFilter(dummyJobPostings);
-  initLocationFilter(dummyJobPostings);
-  initScoreFilter(dummyJobPostings);
+  renderJobs(jobPostingData);
+  initCareerFilter(jobPostingData);
+  initJobTypeFilter(jobPostingData);
+  initPositionFilter(jobPostingData);
+  initStackFilter(jobPostingData);
+  initLocationFilter(jobPostingData);
+  initScoreFilter(jobPostingData);
 }

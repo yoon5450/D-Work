@@ -1,4 +1,5 @@
-import { renderJobs } from '../../renderTable/index.js';
+// import { renderJobs } from '../../renderTable/index.js';
+import { postRender } from '../filterIndex.js';
 import { filterState, applyAllFilters } from '../common/index.js';
 
 // 근무형태 필터 초기화 함수
@@ -29,12 +30,15 @@ export function initJobTypeFilter(jobData) {
 
   // 체크박스 상태 변경 이벤트 등록
   Object.values(checkboxes).forEach(checkbox => {
+
+    checkbox.addEventListener('click', (e) => {
+      e.stopPropagation(); // 팝업 닫힘 방지!
+    });
+
     checkbox.addEventListener('change', () => {
-  /*  const selectedTypes = getSelectedTypes(checkboxes);
-      const filtered = filterByJobType(jobData, selectedTypes);
-      renderJobs(filtered); */
+
       filterState.jobType = getSelectedTypes(checkboxes); // 상태 저장
-      renderJobs(applyAllFilters(jobData));               // 전체 필터 적용
+      postRender(applyAllFilters(jobData));               // 전체 필터 적용
     });
   });
 
@@ -43,7 +47,7 @@ export function initJobTypeFilter(jobData) {
     Object.values(checkboxes).forEach(checkbox => (checkbox.checked = false));
     // renderJobs(jobData);
     filterState.jobType = []; // 상태 초기화
-    renderJobs(applyAllFilters(jobData)); // 전체 필터 적용
+    postRender(applyAllFilters(jobData)); // 전체 필터 적용
   });
 
   // 닫기 버튼 클릭 시 팝업 닫기
