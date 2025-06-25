@@ -204,8 +204,8 @@ button {
   justify-content: space-around;
 }
 
-.main-header-title {
-  font-size: clamp(28px, 3.2vw, 62px);
+.main-header h1 {
+  font-size: clamp(28px, 2.8vw, 62px);
   font-weight: 600;
   color: #78ce85;
 	cursor:pointer;

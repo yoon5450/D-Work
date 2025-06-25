@@ -16,6 +16,7 @@ import {
   renderJobs,
   initLocationFilter,
   initScoreFilter,
+  getUserSessionStorage,
 } from './sung/index.js';
 
 let loginBtn = document.querySelector('#login-btn')
@@ -26,10 +27,12 @@ let overlaySignInBtnTo = document.querySelector('.overlay-btn-sign-in-to')
 let overlyaSingInBtnSubmit = document.querySelector('.overlay-btn-sign-in-submit')
 let overlay = document.querySelector('#overlay')
 let overlayForm = document.querySelector('.overlay-form')
+let headerUserText = document.querySelector('.header-user-name');
 
 window.addEventListener('load', (e) => {
   overlay.classList.add('hidden')
   postRender(jobPostingData)
+  headerUserText.textContent = getUserSessionStorage() || '로그인하세요'
   init()
 })
 
