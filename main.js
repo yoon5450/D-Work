@@ -32,8 +32,9 @@ let overlayForm = document.querySelector('.overlay-form')
 
 window.addEventListener('load', async () => {
   overlay.classList.add('hidden')
-  
+
   let jobData = getSessionStorage();
+
   if (!jobData) {
     try {
       jobData = await getPostingsOnly();
@@ -43,9 +44,10 @@ window.addEventListener('load', async () => {
       return;
     }
   }
-  postRender(jobData)
-  init(jobData)
-})
+
+  postRender(jobData); 
+  init(jobData);
+});
 
 overlayForm.addEventListener('submit', (e) =>{
   e.preventDefault();
