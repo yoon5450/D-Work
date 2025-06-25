@@ -19,6 +19,7 @@ import {
   getSessionStorage,
   getPostingsOnly,
   setSessionStorage,
+  getUserSessionStorage,
 } from './sung/index.js';
 
 let loginBtn = document.querySelector('#login-btn')
@@ -29,6 +30,7 @@ let overlaySignInBtnTo = document.querySelector('.overlay-btn-sign-in-to')
 let overlyaSingInBtnSubmit = document.querySelector('.overlay-btn-sign-in-submit')
 let overlay = document.querySelector('#overlay')
 let overlayForm = document.querySelector('.overlay-form')
+let headerUserText = document.querySelector('.header-user-name');
 
 window.addEventListener('load', async () => {
   overlay.classList.add('hidden')
@@ -47,7 +49,8 @@ window.addEventListener('load', async () => {
 
   postRender(jobData); 
   init(jobData);
-});
+  headerUserText.textContent = getUserSessionStorage() || '로그인하세요'
+})
 
 overlayForm.addEventListener('submit', (e) =>{
   e.preventDefault();
