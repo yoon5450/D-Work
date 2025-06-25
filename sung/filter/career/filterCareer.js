@@ -1,6 +1,6 @@
-// filterCareer.js
 // 경력 필터 관련 유틸 함수와 테이블 렌더링 함수 import
-import { renderJobs } from '../../renderTable/index.js';
+// import { renderJobs } from '../../renderTable/index.js';
+import { postRender } from '../filterIndex.js';
 import { resetCareerFilter } from './filterUtil.js';
 import { filterState, applyAllFilters } from '../common/index.js';
 
@@ -26,8 +26,11 @@ export function initCareerFilter(jobData) {
 
   //  외부 영역 클릭 시 팝업 닫기
   document.addEventListener('click', (e) => {
-    // 팝업과 버튼을 제외한 외부 클릭 시 닫기 처리
-    if (!popup.contains(e.target) && !toggleBtn.contains(e.target)) {
+    const isInsidePopup = popup.contains(e.target);
+    const isToggleBtn = toggleBtn.contains(e.target);
+    const isCareerCheckbox = e.target.closest('#position-popup input[type="checkbox"]');
+  
+    if (!isInsidePopup && !isToggleBtn && !isCareerCheckbox) {
       popup.classList.add('hidden');
     }
   });
@@ -55,7 +58,8 @@ export function initCareerFilter(jobData) {
     highlightButtons(careerGrid, selectedCareer);
   
     const filtered = applyAllFilters(jobData); // 모든 조건 반영된 필터 실행
-    renderJobs(filtered);
+    // renderJobs(filtered);
+    postRender(filtered);
   });
 
   //  체크박스 필터 처리 (신입, 경력, 무관)
@@ -77,13 +81,38 @@ export function initCareerFilter(jobData) {
     // 전체 필터 적용 → 필터링 결과 확인
     const filtered = applyAllFilters(jobData); // 전체 필터로 렌더링
 
-    renderJobs(filtered); // 결과 반영
+    // renderJobs(filtered); // 결과 반영
+    postRender(filtered);
   };
 
+
+  // console.log(checkboxNewbie, checkboxExperienced, checkboxAny);
+
   // 체크박스 변경 이벤트 바인딩
+  // [checkboxNewbie, checkboxExperienced, checkboxAny].forEach(box => {
+  //   box.addEventListener('change', (e) => {
+  //     if (e.target.checked) {
+  //       console.log(`${e.target.value}`,'체크');
+  //     } else {
+  //       console.log(`${e.target.value}`, '해제');
+  //     }
+  //    });
+  // });
+  
+  // [checkboxNewbie, checkboxExperienced, checkboxAny].forEach(box => {
+  //   box.addEventListener('change', handleCheckboxFilter);
+  // });
+
+
   [checkboxNewbie, checkboxExperienced, checkboxAny].forEach(box => {
+    box.addEventListener('click', (e) => {
+      e.stopPropagation(); // 클릭 이벤트가 상위로 퍼지는 걸 막음
+    });
+  
     box.addEventListener('change', handleCheckboxFilter);
   });
+  
+
 
   //  초기화 버튼 클릭 시 필터 리셋 처리
   resetBtn.addEventListener('click', () => {
@@ -92,7 +121,7 @@ export function initCareerFilter(jobData) {
     filterState.career = []; // 전역 상태 초기화
 
     resetCareerFilter(popup, careerGrid);
-    renderJobs(applyAllFilters(jobData));
+    postRender(applyAllFilters(jobData));
 
     /* resetCareerFilter(popup, careerGrid); // UI 상태 초기화
     renderJobs(jobData);        // 전체 공고 다시 렌더링 */
