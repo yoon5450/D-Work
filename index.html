@@ -101,13 +101,20 @@
 
       <!-- 노트 편집기 -->
       <section id="note-section">
-        <header id="note-header">
+				<section class="note-sidebar">
+						<ul class="note-doc-list">
+							<li id="root-doc-elem"><a>ROOT</a><button>+</button></li>
+						</ul>
+				</section>
+				<div>
+					<header id="note-header">
           developer의 노트
-        </header>
+        	</header>
           <div id="editor-container">
             <div id="title-block" class="block" contenteditable="true" data-type="text"></div>
           </div>
         <button id="back-to-calendar">캘린더로 돌아가기</button>
+				</div>
       </section>
       <!-- 결과 테이블 영역 -->
        
