@@ -358,7 +358,7 @@ main {
   align-items: center;
   height: 7vh;
   width: 100%;
-  overflow: auto;
+  overflow-x: auto;
 }
 
 .calendar-header button {
