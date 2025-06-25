@@ -4,6 +4,7 @@ import { filterState, applyAllFilters } from '../common/index.js';
 
 // 근무형태 필터 초기화 함수
 export function initJobTypeFilter(jobData) {
+  // console.log("근무형태 필터에 전달된 데이터:", jobData);
   const checkboxes = {
     fulltime: document.getElementById('jobtype-fulltime'),
     contract: document.getElementById('jobtype-contract'),
@@ -17,8 +18,9 @@ export function initJobTypeFilter(jobData) {
   const closeBtn = document.getElementById('jobtype-close');         // 닫기 버튼
 
   // 드롭다운 버튼 클릭 시 팝업 열기/닫기
-  toggleBtn.addEventListener('click', () => {
+  toggleBtn.addEventListener('click', (e) => {
     popup.classList.toggle('hidden');
+    e.stopPropagation();
   });
 
   // 외부 클릭 시 팝업 닫기 처리

@@ -16,6 +16,9 @@ import {
   renderJobs,
   initLocationFilter,
   initScoreFilter,
+  getSessionStorage,
+  getPostingsOnly,
+  setSessionStorage,
   getUserSessionStorage,
 } from './sung/index.js';
 
@@ -29,11 +32,24 @@ let overlay = document.querySelector('#overlay')
 let overlayForm = document.querySelector('.overlay-form')
 let headerUserText = document.querySelector('.header-user-name');
 
-window.addEventListener('load', (e) => {
+window.addEventListener('load', async () => {
   overlay.classList.add('hidden')
-  postRender(jobPostingData)
+
+  let jobData = getSessionStorage();
+
+  if (!jobData) {
+    try {
+      jobData = await getPostingsOnly();
+      setSessionStorage(jobData);
+    } catch (e) {
+      console.error("초기 공고 데이터 로딩 실패", e);
+      return;
+    }
+  }
+
+  postRender(jobData); 
+  init(jobData);
   headerUserText.textContent = getUserSessionStorage() || '로그인하세요'
-  init()
 })
 
 overlayForm.addEventListener('submit', (e) =>{
@@ -81,12 +97,12 @@ renderCalendar()
 
 calendarContainer.addEventListener('click', handleClickDay)
 
-function init() {
-  renderJobs(jobPostingData);
-  initCareerFilter(jobPostingData);
-  initJobTypeFilter(jobPostingData);
-  initPositionFilter(jobPostingData);
-  initStackFilter(jobPostingData);
-  initLocationFilter(jobPostingData);
-  initScoreFilter(jobPostingData);
+
+function init(jobData) {
+  initCareerFilter(jobData);
+  initJobTypeFilter(jobData);
+  initPositionFilter(jobData);
+  initStackFilter(jobData);
+  initLocationFilter(jobData);
+  initScoreFilter(jobData);
 }
