@@ -43,10 +43,10 @@ export function applyAllFilters(data) {
       );
 
       if (!matched) {
-        console.log('기술스택 불일치:', {
-          stackFilter: filterState.stack,
-          jobStack: job.stack
-        });
+        // console.log('기술스택 불일치:', {
+        //   stackFilter: filterState.stack,
+        //   jobStack: job.stack
+        // });
         return false;
       }
     }
@@ -65,10 +65,17 @@ export function applyAllFilters(data) {
 
     // 회사 평점 필터
     if (filterState.companyscore) {
-      const [min, max] = filterState.companyscore;
-      if (job.companyscore < min || job.companyscore > max) return false;
+      const [minRaw, maxRaw] = filterState.companyscore;
+      const min = parseFloat(parseFloat(minRaw).toFixed(2));
+      const max = parseFloat(parseFloat(maxRaw).toFixed(2));
+      const score = parseFloat(parseFloat(job.companyscore).toFixed(2));
+      // console.log(`회사명: ${job.company}, 평점: ${score}, 범위: ${min} ~ ${max}`);
+    
+      if (score < min || score > max) {
+        // console.log(`→ 제외됨: ${score} < ${min} 또는 ${score} > ${max}`);
+        return false;
+      }
     }
-
     return true; // 모든 조건 통과
   });
 }
