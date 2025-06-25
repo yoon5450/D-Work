@@ -395,19 +395,16 @@ main {
   background-color: white;
   border: 1px solid #78ce85;
   padding: 0 1.2vw;
-  font-size: 24px;
+  font-size: clamp(10px, 1vw, 20px);
   font-weight: 700;
   border-radius: 10px;
 }
 
 .calendar-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 7vh;
   width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .calendar-header button {
@@ -417,8 +414,14 @@ main {
 }
 
 .calendar-header img {
-  width: 20px;
-  height: 25px;
+  width: clamp(10px, 1.0vw, 20px);
+  height: clamp(12px, 1.3vw, 25px);
+  flex-shrink: 0;
+}
+
+.note-btn {
+  width: clamp(14px, 1.2vw, 24px);
+  height: clamp(16px, 1.5vw, 28px);
 }
 
 .calendar-container {
@@ -436,7 +439,7 @@ main {
   padding: 0 0.8vw;
   gap: 0.8vw;
   white-space: nowrap;
-  font-size: 20px;
+  font-size: clamp(8px, 0.9vw, 18px);
 }
 
 .calendar-item > .date-info {
@@ -447,7 +450,7 @@ main {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 16px;
+  font-size: clamp(8px, 0.8vw, 16px);
   font-weight: 500;
   color: dodgerblue;
   > .date-info-add {
