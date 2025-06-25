@@ -92,6 +92,7 @@ renderCalendar()
 
 calendarContainer.addEventListener('click', handleClickDay)
 
+
 function init(jobData) {
   initCareerFilter(jobData);
   initJobTypeFilter(jobData);
