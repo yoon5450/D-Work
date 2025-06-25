@@ -17,7 +17,7 @@ import {
   initLocationFilter,
   initScoreFilter,
   getSessionStorage,
-  getPosting,
+  getPostingsOnly,
   setSessionStorage,
 } from './sung/index.js';
 
@@ -36,7 +36,7 @@ window.addEventListener('load', async () => {
   let jobData = getSessionStorage();
   if (!jobData) {
     try {
-      jobData = await getPosting();
+      jobData = await getPostingsOnly();
       setSessionStorage(jobData);
     } catch (e) {
       console.error("초기 공고 데이터 로딩 실패", e);
