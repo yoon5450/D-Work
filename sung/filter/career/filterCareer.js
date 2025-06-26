@@ -61,6 +61,7 @@ export function initCareerFilter(jobData) {
     const filtered = applyAllFilters(jobData); // 모든 조건 반영된 필터 실행
     // renderJobs(filtered);
     postRender(filtered);
+    setSessionStorage(filtered);
   });
 
   //  체크박스 필터 처리 (신입, 경력, 무관)
@@ -84,6 +85,7 @@ export function initCareerFilter(jobData) {
 
     // renderJobs(filtered); // 결과 반영
     postRender(filtered);
+    setSessionStorage(filtered);
   };
 
 
@@ -123,10 +125,7 @@ export function initCareerFilter(jobData) {
 
     resetCareerFilter(popup, careerGrid);
     postRender(applyAllFilters(jobData));
-
-    /* resetCareerFilter(popup, careerGrid); // UI 상태 초기화
-    renderJobs(jobData);        // 전체 공고 다시 렌더링 */
-
+    setSessionStorage(filtered);
   });
 
   //  닫기 버튼 클릭 시 팝업 숨김
