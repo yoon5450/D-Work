@@ -1,5 +1,5 @@
 // import { renderJobs } from '../../renderTable/index.js';
-import { postRender } from '../filterIndex.js';
+import { postRender, setSessionStorage } from '../filterIndex.js';
 import { filterState, applyAllFilters } from '../common/index.js';
 
 // 근무형태 필터 초기화 함수
@@ -41,6 +41,7 @@ export function initJobTypeFilter(jobData) {
 
       filterState.jobType = getSelectedTypes(checkboxes); // 상태 저장
       postRender(applyAllFilters(jobData));               // 전체 필터 적용
+      setSessionStorage(filtered);
     });
   });
 
@@ -50,6 +51,7 @@ export function initJobTypeFilter(jobData) {
     // renderJobs(jobData);
     filterState.jobType = []; // 상태 초기화
     postRender(applyAllFilters(jobData)); // 전체 필터 적용
+    setSessionStorage(filtered);
   });
 
   // 닫기 버튼 클릭 시 팝업 닫기

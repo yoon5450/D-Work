@@ -67,6 +67,7 @@ export function initStackFilter(jobData) {
     filterState.stack = [];
     searchInput.value = '';
     postRender(applyAllFilters(jobData));
+    setSessionStorage(filtered);
   });
 
   // 닫기 버튼
