@@ -1,5 +1,5 @@
 // import { renderJobs } from '../../renderTable/index.js';
-import { postRender } from '../filterIndex.js';
+import { postRender, setSessionStorage } from '../filterIndex.js';
 import { filterState, applyAllFilters } from '../common/index.js';
 
 export function initPositionFilter(jobData) {
@@ -55,6 +55,7 @@ export function initPositionFilter(jobData) {
 
     const result = applyAllFilters(jobData);
     postRender(result);
+    setSessionStorage(filtered);
   });
 
   // 초기화 버튼
@@ -62,6 +63,7 @@ export function initPositionFilter(jobData) {
     filterState.position = [];
     searchInput.value = '';
     postRender(applyAllFilters(jobData));
+    setSessionStorage(filtered);
   });
 
   // 닫기 버튼
