@@ -415,53 +415,103 @@ main {
   width: 100vw;
   height: 100vh;
   transform: translate(-50%, -50%);
-  background: white; /* 배경색 */
-  overflow-y: auto; /* 내부 스크롤 가능 */
+  background: white;
+  overflow-y: auto;
   border-radius: 8px;
 }
+
 #note-header {
   position: absolute;
   top: 0;
   left: 0;
   width: 240px;
   height: 60px;
-  background-color: #F7F7F8;
+  background-color: #f7f7f8;
   font-size: 20px;
   font-weight: 700;
-  /* border-bottom: 1px solid #E0E0E0; */
+  border-bottom: 1px solid #e0e0e0;
   box-sizing: border-box;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
+
 .note-sidebar{
-  width: 240px;
-  padding-left: 10px;
-  background-color: #F7F7F8;
-  border-right: 1px solid #E0E0E0;
+  float: left;
+	width: 240px;
+	padding-left: 10px;
+  background-color: #f7f7f8;
+  border-right: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
   padding-top: 60px;
 }
+
+#back-to-calendar {
+  padding: 10px 16px;
+  font-size: 14px;
+  background-color: #e2e2e2;
+  border: none;
+  cursor: pointer;
+}
+
 .note-doc-list {
   list-style: none;
   padding: 15px;
   overflow-y: auto;
   cursor: pointer;
+  li {
+    margin-bottom: 10px;
+  }
+  a {
+    display: inline-block;  
+    max-width: 120px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  button{
+    background: none;
+    border: none;
+  }
+  #delete{
+    background-color: #d1d1d1;
+    border: none;
+    border-radius: 4px;
+  }
 }
+
+.note-doc-list li {
+  --depth: 0;
+  padding-left: calc(10px + var(--depth) * 8px);
+  position: relative;
+}
+
+.note-doc-list li::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--depth) * 8px - 4px);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #dcdcdc;
+}
+
 .note-doc-list li:hover {
-  background-color: #E9ECEF;
+  background-color: #e9ecef;
 }
+
  #note-section > div {
   padding: 24px;
   overflow-y: auto;
 }
-/* 에디터 영역 */
+
 #editor-container {
   overflow-y: auto;
 }
-/* 제목 블록 */
+
 #title-block {
   font-size: 28px;
   font-weight: 700;
