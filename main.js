@@ -6,21 +6,21 @@ import {
   postRender,
   signInExecute,
 } from './lib/index.js'
-import { handleClickDay, loginExecute, renderCalendar } from './lib/index.js'
 import {
-  dummyJobPostings,
+  handleClickDay,
+  loginExecute,
+  renderCalendar,
   initCareerFilter,
   initJobTypeFilter,
   initPositionFilter,
   initStackFilter,
-  renderJobs,
   initLocationFilter,
   initScoreFilter,
   getSessionStorage,
   getPostingsOnly,
   setSessionStorage,
   getUserSessionStorage,
-} from './sung/index.js';
+} from './lib/index.js'
 
 let loginBtn = document.querySelector('#login-btn')
 let overlayLoginBtn = document.querySelector('.overlay-btn-login')
