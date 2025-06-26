@@ -453,10 +453,24 @@ main {
   padding: 15px;
   overflow-y: auto;
   cursor: pointer;
+  li {
+    margin-bottom: 10px;
+  }
+  a {
+    display: inline-block;  
+    max-width: 120px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   button{
     background: none;
-    border: 1px solid #555;
-    border-radius: 8px;
+    border: none;
+  }
+  #delete{
+    background-color: #d1d1d1;
+    border: none;
+    border-radius: 4px;
   }
 }
 
@@ -469,12 +483,10 @@ main {
   overflow-y: auto;
 }
 
-/* 에디터 영역 */
 #editor-container {
   overflow-y: auto;
 }
 
-/* 제목 블록 */
 #title-block {
   font-size: 28px;
   font-weight: 700;
@@ -505,9 +517,8 @@ main {
 #back-to-calendar {
   padding: 10px 16px;
   font-size: 14px;
-  background-color: #f1f3f5;
+  background-color: #e2e2e2;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
 }
 
