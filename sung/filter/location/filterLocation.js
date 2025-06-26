@@ -1,5 +1,5 @@
 // import { renderJobs } from '../../renderTable/index.js';
-import { postRender } from '../filterIndex.js';
+import { postRender, setSessionStorage } from '../filterIndex.js';
 import { filterState, applyAllFilters } from '../common/index.js';
 
 // 근무지(Location) 필터 초기화 함수
@@ -33,6 +33,7 @@ export function initLocationFilter(jobData) {
     checkbox.addEventListener('change', () => {
       filterState.location = getSelectedLocations(checkboxes);
       postRender(applyAllFilters(jobData));
+      setSessionStorage(filtered);
     });
   });
 
@@ -41,6 +42,7 @@ export function initLocationFilter(jobData) {
     checkboxes.forEach(cb => (cb.checked = false));
     filterState.location = [];
     postRender(applyAllFilters(jobData));
+    setSessionStorage(filtered);
   });
 
   // 닫기 버튼 클릭 시 팝업 닫기
