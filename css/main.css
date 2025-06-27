@@ -50,6 +50,21 @@ button {
   pointer-events: none;
 }
 
+#overlay input {
+  background-color: #fff; /* 중립색 */
+  border: 1px solid #ccc;
+}
+
+#overlay input:focus:invalid {
+  border-color: #ff7b7b;
+  background-color: #fff0f0;
+}
+
+#overlay input:focus:valid {
+  border-color: #78c2ad;
+  background-color: #f0fffa;
+}
+
 .login-modal {
   width: 40%;
   height: 40%;
@@ -127,6 +142,8 @@ button {
   border: solid 1px #d9d9d9;
   border-radius: 0.4rem;
 }
+
+
 
 /* TODO: nth-child로 통일 가능할 것 같음. */
 
